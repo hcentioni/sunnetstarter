@@ -25,6 +25,7 @@
     "@angular/platform-browser": "^15.0.4",
     "@angular/platform-browser-dynamic": "^15.0.4",
     "@angular/router": "^15.0.4",
+    "@angular/service-worker": "^15.0.4",
     "@coreui/angular-pro": "~4.3.0",
     "@coreui/coreui-pro": "~4.4.2",
     "@coreui/icons": "^2.1.0",
