@@ -3,6 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DefaultLayoutComponent } from './containers';
 
+import { LoginComponent } from './views/pages/login/login.component';
+
+import { AuthGuard } from './shared/guards/auth.guard';
+
+
 const routes: Routes = [
   {
     path: '',
@@ -11,6 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    canActivate:[AuthGuard],
     component: DefaultLayoutComponent,
     data: {
       title: $localize`Home`
@@ -20,8 +26,20 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () =>
           import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
-      }
+      },
+      {
+        path: 'pages',
+        loadChildren: () =>
+          import('./views/pages/pages.module').then((m) => m.PagesModule)
+      },
     ]
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      title: 'Login Page'
+    }
   },
   { path: '**', redirectTo: 'dashboard' }
 ];

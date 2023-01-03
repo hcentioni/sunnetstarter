@@ -32,6 +32,7 @@
     "@coreui/icons-angular": "~4.3.0",
     "date-fns": "^2.29.3",
     "rxjs": "~7.5.0",
+    "sweetalert2": "^11.6.16",
     "tslib": "^2.4.1",
     "zone.js": "~0.12.0"
   },

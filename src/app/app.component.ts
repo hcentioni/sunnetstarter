@@ -10,7 +10,7 @@ import { Title } from '@angular/platform-browser';
   template: '<router-outlet></router-outlet>',
 })
 export class AppComponent implements OnInit {
-  title = 'CoreUI Pro Angular Admin Template Starter';
+  title = 'SunNet-Web';
 
   constructor(
     private router: Router,

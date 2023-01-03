@@ -1,13 +1,20 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { LOCALE_ID, NgModule, isDevMode } from '@angular/core';
+import localeEsAr from '@angular/common/locales/es-AR';
+import { registerLocaleData } from '@angular/common';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TokenInterceptorService } from './shared/services/token-interceptor.service';
 
 // Import routing module
 import { AppRoutingModule } from './app-routing.module';
 
 // Import app component
 import { AppComponent } from './app.component';
+
+registerLocaleData(localeEsAr, 'es-Ar');
 
 // Import containers
 import {
@@ -25,11 +32,22 @@ import {
   GridModule,
   HeaderModule,
   NavModule,
-  SidebarModule
+  SidebarModule,
+  AvatarModule,
+  ButtonGroupModule,
+  CardModule,
+  DropdownModule,
+  FormModule,
+  ListGroupModule,
+  ProgressModule,
+  SharedModule,
+  TabsModule,
+  UtilitiesModule,
 } from '@coreui/angular-pro';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { ServiceWorkerModule } from '@angular/service-worker';
+
 
 const APP_CONTAINERS = [
   DefaultAsideComponent,
@@ -52,8 +70,20 @@ const APP_CONTAINERS = [
     IconModule,
     NavModule,
     ButtonModule,
-    SidebarModule,
     BadgeModule,
+    FormsModule,
+    HttpClientModule,
+    AvatarModule,
+    ButtonGroupModule,
+    CardModule,
+    DropdownModule,
+    FormModule,
+    ListGroupModule,
+    ProgressModule,
+    SharedModule,
+    TabsModule,
+    UtilitiesModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
@@ -66,6 +96,12 @@ const APP_CONTAINERS = [
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
+    { provide: LOCALE_ID, useValue: 'es-Ar' },
     IconSetService,
     Title
   ],

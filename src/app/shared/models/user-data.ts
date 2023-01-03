@@ -1,0 +1,21 @@
+export interface UserData {
+    IdCliente:number;
+    Codigo:string;
+    RazonSocial:string;
+    IdClienteContacto:number;
+    Usuario:string;
+    IdCondicionIva:number;
+    IdCondicionDePago:number;
+    CtaCte:boolean;
+    CreditoMax:number;
+    Dto:number;
+    Dto2:number;
+    IdVendedor:number;
+    IdLista:number;
+    emailFE:string;
+    emailUser:string;
+    IdTransporte:number;
+    BaseDatos:string;
+    IdClientePrincipal:number;
+    ConHijos:boolean;
+}
